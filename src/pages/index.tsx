@@ -37,6 +37,7 @@ const Home: NextPage = () => {
               </div>
             </Link>
           </div>
+          <Link href="/api/auth/signin">Sign in</Link>
         </div>
       </main>
     </>
