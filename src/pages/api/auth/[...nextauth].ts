@@ -1,6 +1,8 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import CredentialsProvider from 'next-auth/providers/credentials'
+import TwitterProvider from "next-auth/providers/twitter";
+import GoogleProvider from "next-auth/providers/google";
 import { compare } from 'bcrypt'
 // Prisma adapter for NextAuth, optional and can be removed
 // @ts-ignore
@@ -23,10 +25,27 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+      //@ts-ignore
+      clientId: process.env.DISCORD_CLIENT_ID,
+      //@ts-ignore
+      clientSecret: process.env.DISCORD_CLIENT_SECRET,
+    }),
+    TwitterProvider({
+      //@ts-ignore
+      clientId: process.env.TWITTER_CLIENT_ID,
+      //@ts-ignore
+      clientSecret: process.env.TWITTER_CLIENT_SECRET,
+      // version: "2.0", // opt-in to Twitter OAuth 2.0
+      
     }),
     // ...add more providers here
+    GoogleProvider({
+      //@ts-ignore
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      //@ts-ignore
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+        
+      }),
     CredentialsProvider({
       type: 'credentials',
       credentials: {
@@ -50,6 +69,7 @@ export const authOptions: NextAuthOptions = {
           
 
           // const match = await compare(password, user.password);
+          // @ts-ignore
           const match = await (password == user.password)
           if (match && user) {
               console.log('pw looks fine')
