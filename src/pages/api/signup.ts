@@ -1,15 +1,16 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 import { Prisma } from '@prisma/client';
 import { hash } from 'bcrypt'
-
 import { prisma } from "../../server/db/client";
 
 const SALTROUNDS = 10
+
 interface Props {
     email: string;
     password: string;
-  }
-export default function signup(req: any, res: any) {
+}
 
+export default function signup(req: NextApiRequest, res: NextApiResponse) {
     // try {
     hash(req.body.password, SALTROUNDS, async function (err, hash) {
         if (!req.body.password) {
