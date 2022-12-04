@@ -9,7 +9,6 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "rules": { "no-empty-interface": false },
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
