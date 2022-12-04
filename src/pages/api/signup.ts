@@ -23,7 +23,7 @@ export default function signup(req: any, res: any) {
         console.log('Creating user!')
         try {
             const user = await prisma.user.create({
-                data<Props>: {
+                data: {
                     email: req.body.email,
                     password: req.body.password,
                 },
