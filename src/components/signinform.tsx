@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 
 
-const SignInForm: NextPage<{}> = ({}) => {
+const SignInForm: NextPage = ({}) => {
   const { status, data } = useSession();
 
   const router = useRouter();
