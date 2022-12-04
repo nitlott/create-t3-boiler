@@ -21,7 +21,7 @@ export default function signup(req: any, res: any) {
             const user = await prisma.user.create({
                 data: {
                     email: req.body.email,
-                    // @ts-ignore
+                    //@ts-expect-error: cant know whats in the object before you get it
                     password: req.body.password,
                 },
             });
