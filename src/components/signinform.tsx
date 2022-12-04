@@ -4,9 +4,8 @@ import { FormEventHandler, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 
-interface Props {}
 
-const SignInForm: NextPage<Props> = ({}) => {
+const SignInForm: NextPage<{}> = ({}) => {
   const { status, data } = useSession();
 
   const router = useRouter();
