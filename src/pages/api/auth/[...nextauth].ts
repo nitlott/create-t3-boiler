@@ -65,8 +65,8 @@ export const authOptions: NextAuthOptions = {
           
 
           // const match = await compare(password, user.password);
-          //@ts-expect-error: cant know whats in the object before you get it
-          const match = await (password == user.password)
+          //ts-expect-error: cant know whats in the object before you get it
+          const match = (password === user.password)
           if (match && user) {
               console.log('pw looks fine')
               return user
