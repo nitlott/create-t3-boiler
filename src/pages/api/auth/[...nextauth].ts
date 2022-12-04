@@ -65,6 +65,7 @@ export const authOptions: NextAuthOptions = {
           
 
           // const match = await compare(password, user.password);
+          //@ts-expect-error
           const match = await (password == user.password)
           if (match && user) {
               console.log('pw looks fine')
