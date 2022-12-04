@@ -4,6 +4,10 @@ import { hash } from 'bcrypt'
 import { prisma } from "../../server/db/client";
 
 const SALTROUNDS = 10
+interface Props {
+    email: string;
+    password: string;
+  }
 export default function signup(req: any, res: any) {
 
     // try {
@@ -19,9 +23,8 @@ export default function signup(req: any, res: any) {
         console.log('Creating user!')
         try {
             const user = await prisma.user.create({
-                data: {
+                data<Props>: {
                     email: req.body.email,
-                    //@ts-expect-error: cant know whats in the object before you get it
                     password: req.body.password,
                 },
             });
