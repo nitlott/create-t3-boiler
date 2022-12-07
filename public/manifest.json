@@ -1,0 +1,18 @@
+{
+    "theme_color": "#c5c5c5",
+    "background_color": "#c5c5c5",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "zylex.se",
+    "short_name": "zylex.se",
+    "description": "zlx",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
